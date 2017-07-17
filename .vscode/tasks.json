@@ -4,9 +4,13 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "echo",
-            "command": "echo Hello",
-            "type": "shell"
+            "label": "start dev server",
+            "script": "start",
+            "type": "npm",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

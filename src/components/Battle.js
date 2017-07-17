@@ -108,6 +108,7 @@ class Battle extends Component {
         });
     }
     render() {
+        const match = this.props.match;
         const playerOneName = this.state.playerOneName;
         const playerTwoName = this.state.playerTwoName;
         const playerOneImage = this.state.playerOneImage;
@@ -142,13 +143,17 @@ class Battle extends Component {
                             onReset={this.handleReset}
                             id='playerTwo' />}
 
-                    {playerOneImage && playerTwoImage &&
-                        <Link
-                            className='button'
-                            to={}>
-                            Battle
-                        </Link>}
                 </div>
+                {playerOneImage && playerTwoImage &&
+                    <Link
+                    className='button'
+                    to={{
+                        pathname: match.url + '/results',
+                        search: `?playerOneName=` + playerOneName + '&playerTwoName=' +
+                            playerTwoName
+                    }}>
+                    Battle
+                </Link>}
             </div>
         );
     }
