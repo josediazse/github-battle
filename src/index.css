@@ -143,3 +143,7 @@ a {
 .reset:hover {
   cursor: pointer;
 }
+
+.space-list-items {
+    margin-bottom: 7px;
+}

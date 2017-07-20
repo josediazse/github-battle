@@ -51,7 +51,7 @@ export default {
     battle: function (players) {
         return axios.all(players.map(getUserData))
             .then(sortPlayers)
-            .error(handleError)
+            .catch(handleError)
     },
     fetchPopularRepos: (language) => {
         const encodedURI = window.encodeURI('https://api.github.com/search/repositories?q=stars:>1+language:' + language + '&sort=stars&order=desc&type=Repositories');
