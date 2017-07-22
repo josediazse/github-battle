@@ -84,10 +84,7 @@ class Battle extends Component {
     }
     render() {
         const match = this.props.match;
-        const playerOneName = this.state.playerOneName;
-        const playerTwoName = this.state.playerTwoName;
-        const playerOneImage = this.state.playerOneImage;
-        const playerTwoImage = this.state.playerTwoImage;
+        const { playerOneName, playerTwoName, playerOneImage, playerTwoImage } = this.state;
 
         return (
             <div>
@@ -118,7 +115,7 @@ class Battle extends Component {
                     {playerTwoImage !== null &&
                         <PlayerPreview
                             avatar={playerTwoImage}
-                            username={playerTwoName}>                                                
+                            username={playerTwoName}>
                             <button
                                 className='reset'
                                 onClick={this.handleReset.bind(null, 'playerTwo')}>
@@ -129,13 +126,13 @@ class Battle extends Component {
                 </div>
                 {playerOneImage && playerTwoImage &&
                     <Link
-                    className='button'
-                    to={{
-                        pathname: match.url + '/results',
-                        search: `?playerOneName=` + playerOneName + '&playerTwoName=' +
+                        className='button'
+                        to={{
+                            pathname: match.url + '/results',
+                            search: `?playerOneName=` + playerOneName + '&playerTwoName=' +
                             playerTwoName
-                    }}>
-                    Battle
+                        }}>
+                        Battle
                 </Link>}
             </div>
         );
